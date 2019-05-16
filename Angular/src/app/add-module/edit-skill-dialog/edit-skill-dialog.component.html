@@ -1,0 +1,41 @@
+<!-- <app-skill></app-skill> -->
+
+<section class="main" [formGroup]="skillForm" >
+  <div class="card-title">
+    <h2>Edit Skill</h2>
+  </div>
+  
+  <mat-dialog-content formGroupName="skills">
+    <div class="row-items" *ngFor="let skillControl of skillForm.controls.skills.controls; let i = index" [formGroupName]="i">
+      <p>{{dataJson?.skill}}
+        <mat-form-field>
+          <input matInput name="skillName" formControlName="skillName" [matAutocomplete]="auto" (keyup)="onKeyUp(i)" required />
+        </mat-form-field>     
+         <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"> 
+
+         <mat-option *ngIf="isLoading" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+         <ng-container *ngIf="!isLoading">
+           <mat-option *ngFor="let skill of filteredSkills" [value]="skill">
+            <span>{{ skill.name }}</span>
+           </mat-option>
+         </ng-container>
+        </mat-autocomplete>
+        {{dataJson?.of}}
+        <mat-form-field>
+          <input matInput name="skillLevel" formControlName="skillLevel" [matAutocomplete]="auto1" required />
+          <mat-autocomplete #auto1="matAutocomplete">
+            <mat-option *ngFor="let option of options" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        {{dataJson?.level}}
+      </p>
+      
+    </div>
+  </mat-dialog-content>
+  <div class="button-row">
+    <button mat-button mr-2 (click)="onClose()">Close</button>
+    <button mat-raised-button (click)="onSave()"  [disabled]="!skillForm.valid">Save</button>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+<section>
+  <h2>Add Info</h2>
+  <mat-dialog-content>
+    <section class="details">
+      <section class="sub-details" id="education" (click)="educationClick()">Education</section>
+      <section class="sub-details" id="skill" (click)="skillClick()">Skill</section>
+      <section class="sub-details" (click)="projectClick()">Project</section>
+      <section class="sub-details" (click)="certificateClick()">Certificate</section>
+      <section class="sub-details" (click)="locationClick()">Address</section>
+      <section class="sub-details" (click)="experienceClick()">Experience</section>
+      <section class="sub-details" (click)="interestClick()">Interests</section>
+    </section>
+  </mat-dialog-content>
+  <div>
+    <button mat-button color="accent" (click)="close()">Close</button>
+  </div>
+</section>

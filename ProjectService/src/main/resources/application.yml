@@ -1,0 +1,21 @@
+server:
+  port: 8083
+
+kafka:
+  ipAddress: localhost:9092
+  groupId: group_id45
+  outputTopic: indexer
+  listeningTopic: project
+  containerFactory: userKafkaListenerFactory
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 1
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8091/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5

@@ -1,0 +1,47 @@
+
+/* .container {
+    background-color:coral;
+} */
+
+/* .container{
+    background-color: aqua;
+    display: flex;
+    align-content: center;
+} */    
+
+.Address{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    font-size: 12px;
+}
+
+.phone{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.name {
+    font-family: serif;
+    font-size: 30px;
+    color: blueviolet;
+    display: flex;
+    flex: 0.5;
+    justify-content: flex-start;
+}
+
+.email{
+    color: blueviolet;
+    display: flex;
+    flex: 0.5;
+    justify-content: flex-start;
+}
+
+.combine {
+    display: flex;
+    align-content: center;
+}
+body{
+    /* background-image: url("/home/cgi/Documents/visitingcard.jpg"); */
+    /* background-color: cornflowerblue; */
+}

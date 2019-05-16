@@ -1,0 +1,23 @@
+server:
+  port: 8093
+
+kafka:
+  ipAddress: localhost:9092
+  groupId: group_id101
+  listeningTopic: query
+  outputTopic: token
+  containerFactory: userKafkaListenerFactory
+  success: Successfully saved
+  consumed: Consumed
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 1
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8091/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5

@@ -1,0 +1,32 @@
+#logging:
+#  file: logs/apring-boot-logging.log
+#  pattern:
+#    console: "%d %-5level %logger : %msg%n"
+#    file: "%d %-5level [%thread] %logger : %msg%n"
+#  level:
+#    org.springframework.web: ERROR
+#    com.stackroute: DEBUG
+#    org.hibernate: ERROR
+#    log4j.logger.org.thymeleaf: DEBUG
+#
+server:
+  port: 8086
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 1
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8091/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5
+
+controller:
+  base: /api/v1/registration
+  user: /user
+kafka:
+  ipAddress: localhost:9092
+

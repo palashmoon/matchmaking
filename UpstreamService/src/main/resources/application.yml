@@ -1,0 +1,26 @@
+server:
+  port: 9191
+kafka:
+  ipAddress: localhost:9092
+controller:
+  base : /api/v1
+  education : /education
+  location : /location
+  skills : /skills
+  project : /project
+  experience : /experience
+  certificate : /certificate
+  interest : /interest
+  basicdetails : /basicdetails
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 1
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8091/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5

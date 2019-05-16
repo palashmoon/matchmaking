@@ -1,0 +1,24 @@
+.example-card[_ngcontent-c22] {
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: baseline;
+    align-items: center;
+    margin: 5px;
+    flex: 1;
+}
+
+.mat-card{
+transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+padding: 16px;
+border-radius: 4px;
+}
+
+
+.mat-card-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    
+}

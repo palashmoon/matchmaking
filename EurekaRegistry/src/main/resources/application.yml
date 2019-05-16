@@ -1,0 +1,9 @@
+server:
+  port: 8091 # Indicate the default PORT where this service will be started
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    server:
+      waitTimeInMsWhenSyncEmpty: 0

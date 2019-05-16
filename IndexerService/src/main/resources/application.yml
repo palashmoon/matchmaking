@@ -1,0 +1,26 @@
+kafka:
+  ipAddress: localhost:9092
+  groupId: akash
+  listeningTopic: indexer
+  containerFactory: userKafkaListenerFactory
+
+server:
+  port: 8001
+spring:
+  data:
+    neo4j:
+      uri: bolt://0.0.0.0
+      username: neo4j
+      password: 123456
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 1
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8091/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5

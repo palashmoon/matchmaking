@@ -1,0 +1,106 @@
+
+  .body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow-x: hidden;
+
+  }
+  .header{
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    /* justify-content: center; */
+    align-items: flex-start;
+    color: black;
+    padding-bottom: 70px;
+  }
+  hr{
+    display: block;
+    width: 80%;
+    height:1px;
+    border:0;
+    margin: 1em 0;
+    padding: 0;
+    border-top: 2px solid #ccc;
+  }
+
+ .block{
+   width: 170%;
+   justify-content: space-between;
+   align-content: center;
+ }
+ .button {
+   align-content: center;
+   
+ }
+
+  .right{
+    float: right;
+    position: relative;
+    width: 100%;
+  }
+
+  .left{
+    float: left;
+    position: relative;
+    width: 100%;
+  }
+
+  .Education{
+    display: inline;
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+  }
+
+  .skills{
+    display: inline;
+    display: flex;
+    flex:1;
+    justify-content: space-around;
+  }
+
+  .Certificate{
+    display: inline;
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    
+  }
+
+  .Location{
+    display: inline;
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    
+  }
+
+  .Projects{
+    display: inline;
+    display: flex;
+    flex:1;
+    justify-content: space-around;
+  }
+
+  .Experience{
+    display: inline;
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+  }
+  
+  /* @media only screen and (max-width: 430px) {
+    .left,
+    .right {
+      display: none;
+    }
+    .stuff {
+      width: 100%;
+      margin-left: 10px;
+    }
+  } */

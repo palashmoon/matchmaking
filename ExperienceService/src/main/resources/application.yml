@@ -1,0 +1,29 @@
+server:
+  port: 8087
+
+
+kafka:
+  ipAddress: localhost:9092
+  groupId: group_id12
+  outputTopic: indexer
+  linsteningTopic: experience
+  containerFactory: userKafkaListenerFactory
+  relationshipProperty: Working
+  relationshipType: is-a
+  operationType: post
+  sourceNode: vivek
+  sourceNodeProperties: pandey
+  terminalNode: Bangalore
+  terminalNodeProperties: Visiting
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 1
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8091/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5

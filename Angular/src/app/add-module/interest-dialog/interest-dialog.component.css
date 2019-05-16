@@ -1,0 +1,19 @@
+.date{
+    width: 27%;
+}
+.button-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.card-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.row-items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}

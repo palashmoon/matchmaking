@@ -1,0 +1,41 @@
+<section class="main" [formGroup]="locationForm" >
+  <div class="card-title">
+    <h2>Edit location</h2>
+  </div>
+  
+
+  <mat-dialog-content >
+      <p>Current Location</p>
+      <p>
+        <mat-form-field>
+          <input matInput placeholder="Street Address" formControlName="currentId" required />
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="City Name" formControlName="currentCityName" [matAutocomplete]="auto" required />
+        </mat-form-field>
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngIf="isLoading" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+          <ng-container *ngIf="!isLoading">
+            <mat-option *ngFor="let currentcityname of filteredCurrentCityName" [value]="currentcityname">
+              <span>{{ currentcityname.name }}</span>
+            </mat-option>
+          </ng-container>
+        </mat-autocomplete>
+        <mat-form-field>
+          <input matInput placeholder="State Name" formControlName="currentStateName" [matAutocomplete]="auto2" required />
+          <mat-autocomplete #auto2="matAutocomplete" [displayWith]="displayFn2">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="pin code" formControlName="currentPincode" required />
+        </mat-form-field>
+      </p>
+  </mat-dialog-content>
+  <div class="button-row">
+    <button mat-button mr-2 (click)="onClose()">Close</button>
+    <button mat-raised-button (click)="onSave()" >Save</button>
+  </div>
+</section>

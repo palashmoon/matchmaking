@@ -1,0 +1,64 @@
+server:
+    port: 8090
+
+#spring:
+#    application:
+#        name: DownstreamService
+#    cloud:
+#        config:
+#            uri: http://localhost:8888
+#data:
+#    mongodb:
+#        database: stackroute
+#        uri: mongodb://localhost:27017
+#
+#management:
+#    security:
+#        enabled: false
+
+
+#eureka:         #tells about the Eureka server details and its refresh time
+#    instance:
+#        leaseRenewalIntervalInSeconds: 1
+#        leaseExpirationDurationInSeconds: 1
+#    client:
+#        serviceUrl:
+#            defaultZone: http://localhost:8091/eureka/
+#        healthcheck:
+#            enabled: true
+#        lease:
+#            duration: 5
+eureka:
+    instance:
+        leaseRenewalIntervalInSeconds: 1
+        leaseExpirationDurationInSeconds: 1
+    client:
+        serviceUrl:
+            defaultZone: http://localhost:8091/eureka/
+        healthcheck:
+            enabled: true
+        lease:
+            duration: 5
+
+controller:
+    base: /matchmaker/v1
+    employees: /employees
+    employee: /employees/{id}
+    community: /community/employees
+
+kafka:
+    ipAddress: localhost:9092
+    groupId: group_id5
+    listeningTopic1: user
+    listeningTopic2: education
+    listeningTopic3: skills
+    listeningTopic4: location
+    listeningTopic5: certificate
+    listeningTopic6: project
+    listeningTopic7: experience
+    containerFactory: userKafkaListenerFactory
+    success: Successfully saved
+    consumed: Consumed
+
+
+

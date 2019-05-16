@@ -1,0 +1,5 @@
+Bachelor of (Arts|Laws|Science|Engineering|Divinity)	EDUCATION
+(Java|C|C++|Scala|Pyhton|Angular|Html|Css|Php|Javascript|Docker|C#|JQuery|Go|Iot|Lisp|Ruby|Cobol|Algorithms|Fortran|Xml|Alogrithms|AI)	SKILLS
+( /Big/ /Data/|/Machine/ /Learning/|/Data/ /Mining/|/Deep/ /Learning/|/Artificial/ /Intelligence/ )	SKILLS
+[0-9]+ years	EXPERIENCE
+(Banking|Finance|Health|Government) domain	DOMAIN

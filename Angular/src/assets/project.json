@@ -1,0 +1,26 @@
+{
+	"title": {
+		"text": "The title of my project is",
+		"error": "Title cannot be empty"
+	},
+	"from": "and I have worked on this project from",
+	"to": "to",
+	"url": {
+		"text": "The URL for this project is",
+		"error": "Enter a valid URL"
+	},
+	"domain" : "The domain of this project was",
+	"role": "and my role is",
+	"description": {
+		"text": ". Here is a short description of the project:",
+		"error": "Minimum 30 characters"
+	},
+	"company" : "This project was done when I was associated with",
+	"client"  : "company and the client for this project was",
+	"technology" : {
+		"heading": "Technologies Used",
+		"text1": "I have used",
+		"text2": "technology with",
+		"text3": "level expertise"
+	}
+}

@@ -1,0 +1,14 @@
+.image {
+    height: 220px;
+    width: 200px;
+    /* margin-right: 200px; */
+    border-radius: 50%;
+}
+
+.main {
+    display: flex;
+}
+
+.pic {
+    margin-right: 20px;
+}

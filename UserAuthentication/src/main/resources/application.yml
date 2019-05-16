@@ -1,0 +1,49 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/login
+    username: root
+    password: password
+  jpa:
+    openInView: false
+    show_sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+
+server:
+  port: 8088
+usercontroller:
+  messages:
+    exception1: User Not Found
+    exception2: Sucessfully Created
+    exception3: please fill in username and password
+    exception4: user email not found
+    exception5: Invalid Login.Please check your email and password
+securecontroller:
+  message:
+    return: Login Successful!
+jwtfilter:
+  messages:
+    exception1: Missing or invalid Authorization header
+    exception2: Invalid token
+kafka:
+  ipAddress: localhost:9092
+  groupId: group_id54
+  listeningTopic: user
+  containerFactory: kafkaUserListenerContainerFactory
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 1
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8091/eureka/
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5

@@ -1,0 +1,366 @@
+version: '2.0'
+services:
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ../data/redis:/data
+    restart: always
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    hostname: zookeeper
+    ports:
+      - "2181:2181"
+    expose:
+      - 2181
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    restart: always
+
+
+  kafka:
+    image: wurstmeister/kafka:0.10.2.0
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    expose:
+      - 9092
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_CREATE_TOPICS: "education:1:1"
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - zookeeper
+    restart: always
+
+  nlppipeline-service:
+    image: nlppipeline-service:v1
+    build: NlpPipeline/
+    restart: always
+    container_name: nlp-pipeline
+    network_mode: host
+    depends_on:
+      - config-server
+      - kafka
+      - redis
+    ports:
+      - "8093:8093"
+    expose:
+      - "8093"
+
+  cache-service:
+    image: cache-service:v1
+    build: CacheService/
+    restart: always
+    container_name: cache-container
+    network_mode: host
+    depends_on:
+      - neo4jdb
+      - redis
+      - config-server
+    ports:
+      - "8008:8008"
+    expose:
+      - "8008"
+
+  indexer-service:
+    image: indexer-service:v1
+    build: IndexerService/
+    restart: always
+    container_name: indexer-container
+    network_mode: host
+    depends_on:
+      - kafka
+      - config-server
+    ports:
+      - "8001:8001"
+    expose:
+      - "8001"
+
+  query-service:
+    image: query-service:v1
+    build: QueryService/
+    restart: always
+    container_name: query-container
+    network_mode: host
+    depends_on:
+      - kafka
+      - config-server
+    ports:
+      - "8095:8095"
+    expose:
+      - "8095"
+
+  education-service:
+    image: education-service:v1
+    build: EducationService/
+    restart: always
+    container_name: education-container
+    network_mode: host
+    depends_on:
+      - kafka
+      - config-server
+    ports:
+      - "8082:8082"
+    expose:
+      - "8082"
+  authentication-service:
+    image: authentication-service:v1
+    build: UserAuthentication/
+    restart: always
+    container_name: authentication-container
+    network_mode: host
+    depends_on:
+      - mysql
+      - kafka
+      - config-server
+    ports:
+      - "8088:8088"
+    expose:
+      - 8088
+  uploadpic-service:
+    image: uploadpic-service:v1
+    build: UploadingPhoto/
+    restart: always
+    container_name: uploadpic-container
+    network_mode: host
+    depends_on:
+      - mysql
+    ports:
+      - "8096:8096"
+    expose:
+      - 8096
+  registration-service:
+    image: registration-service:v1
+    build: RegistrationService/
+    restart: always
+    container_name: registration-container
+    network_mode: host
+    depends_on:
+      - kafka
+      - config-server
+    ports:
+      - "8086:8086"
+    expose:
+      - 8086
+
+
+  certification-service:
+    image: certification-service:v1
+    build: CertificationService/
+    restart: always
+    container_name: certification-container
+    network_mode: host
+    depends_on:
+      - kafka
+      - config-server
+    ports:
+      - "8085:8085"
+    expose:
+      - "8085"
+  experience-service:
+    image: experience-service:v1
+    build: ExperienceService/
+    restart: always
+    container_name: experience-container
+    network_mode: host
+    depends_on:
+      - kafka
+      - config-server
+    ports:
+      - "8087:8087"
+    expose:
+      - "8087"
+  location-service:
+    image: location-service:v1
+    build: LocationService/
+    restart: always
+    container_name: location-container
+    network_mode: host
+    depends_on:
+      - kafka
+      - config-server
+    ports:
+      - "8084:8084"
+    expose:
+      - "8084"
+  project-service:
+    image: project-service:v1
+    build: ProjectService/
+    restart: always
+    container_name: project-container
+    network_mode: host
+    depends_on:
+      - kafka
+      - config-server
+    ports:
+      - "8083:8083"
+    expose:
+      - "8083"
+  skill-service:
+    image: skill-service:v1
+    build: SkillService/
+    restart: always
+    container_name: skill-container
+    network_mode: host
+    depends_on:
+      - kafka
+      - config-server
+    ports:
+      - "8081:8081"
+    expose:
+      - "8081"
+  upstream-service:
+    image: upstream-service:v1
+    build: UpstreamService/
+    restart: always
+    container_name: upstream-container
+    network_mode: host
+    depends_on:
+      - kafka
+      - config-server
+    ports:
+      - "9191:9191"
+    expose:
+      - "9191"
+  downstream-service:
+    image: downstream-service:v1
+    build: DownstreamService/
+    restart: always
+    container_name: downstream-container
+    network_mode: host
+    depends_on:
+      - kafka
+      - mongodb
+      - config-server
+      - eureka
+    ports:
+      - "8090:8090"
+    expose:
+      - "8090"
+  config-server:
+    image: config-server:v1
+    build: ConfigServer/
+    restart: always
+    container_name: config-container
+    network_mode: host
+    depends_on:
+      - eureka
+    ports:
+      - "8888:8888"
+    expose:
+      - 8888
+
+  mongodb:
+    image: mongo:3.2-jessie
+    ports:
+      - "27017:27017"
+    container_name: mongo-db
+    network_mode: host
+  mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+    container_name: sql-auth
+    network_mode: host
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: login
+  angular:
+    image: angular
+    build: Angular/
+    depends_on:
+      - gateway
+    ports:
+      - "4200:4200"
+    expose:
+      - "4200"
+    container_name: "angular"
+  gateway:
+    image: zuulgateway:v1
+    build: ZuulGateway/
+    restart: always
+    container_name: zuul-container
+    network_mode: host
+    depends_on:
+      - mongodb
+      - config-server
+      - eureka
+    ports:
+      - "8097:8097"
+    expose:
+      - "8097"
+  eureka:
+    image: eureka:v1
+    build: EurekaRegistry/
+    restart: always
+    container_name: eureka-container
+    network_mode: host
+    ports:
+      - "8091:8091"
+    expose:
+      - 8091
+
+  neo4jdb:
+    image: neo4j:3.0
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    expose:
+      - 7474
+    volumes:
+      - ../neo4jData/data:/data
+      - ../neo4jData/import:/var/lib/neo4j/import
+    container_name: neo4j-db
+    network_mode: host
+
+  interest-service:
+    image: interest-service:v1
+    build: InterestService/
+    restart: always
+    container_name: interest-container
+    network_mode: host
+    depends_on:
+      - kafka
+      - eureka
+      - config-server
+    ports:
+      - "8099:8099"
+    expose:
+      - "8099"
+
+  websocket-service:
+    image: websocket-service:v1
+    build: WebsocketService/
+    restart: always
+    container_name: websocket-container
+    network_mode: host
+    depends_on:
+    - kafka
+    - eureka
+    - config-server
+    ports:
+    - "8069:8069"
+    expose:
+    - "8069"
+
+  search-engine-service:
+    image: search-engine-service:v1
+    build: QueryEngine/
+    restart: always
+    container_name: search-engine-container
+    network_mode: host
+    depends_on:
+    - kafka
+    - neo4jdb
+    ports:
+    - "7001:7001"
+    expose:
+    - "7001"

@@ -1,0 +1,45 @@
+<div class="main">
+  <div class="login-section">
+    <div class="company-logo">
+      <img src="src\assets\images\logo-main.png"/>
+    </div>
+    <div class="company-name">
+      <h3>Match Maker</h3>
+    </div>
+    <div class="mt-2">
+      <form class="login-form" [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onLoginSubmit()" #f="ngForm"  novalidate>
+          <mat-form-field class="custom-row" appearance="outline">
+            <mat-icon matPrefix style="color:white">person</mat-icon>
+            <input matInput class='formfield 'type="text" name="email"  formControlName="email" [(ngModel)]="user.email" placeholder=" Enter your email"/>
+          </mat-form-field>
+          <mat-form-field  class="custom-row" appearance="outline">
+            <input matInput class='formfield' name="password"
+              formControlName="password"
+              [(ngModel)]="user.password"
+              placeholder=" Enter your password"
+              [type]="hide ? 'password' : 'text'" />
+              <mat-icon style="color:white" matSuffix id="hide" (click)="hide = !hide">
+                {{ hide ? "visibility" : "visibility_off" }}
+              </mat-icon>
+          </mat-form-field>
+          <button outline="true"
+            rounded="true"
+            mat-raised-button
+            type="submit"
+            class="mat-raised-button mat-primary"
+            [disabled]="!loginForm.valid">
+            Login
+          </button>
+          <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+            {{ errorMessage }}
+          </div>
+      </form>
+      <div class="form-container">
+        <span class="suggest mt-1">
+          Not on match maker yet?
+          <a routerLink="/register">Register </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

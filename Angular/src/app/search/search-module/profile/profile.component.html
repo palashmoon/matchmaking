@@ -1,0 +1,62 @@
+<div class="profile">
+  <div class="name-section">
+    <h4>{{employeesData.name}}</h4>
+    <h6>{{employeesData.email}}</h6>
+    <div *ngIf="employeesData.basicInfo != null">
+        <h6 *ngIf="employeesData.basicInfo.contactNo != null"><i>{{employeesData.basicInfo.contactNo}}</i></h6>
+        <h6 *ngIf="employeesData.basicInfo.gender != null"><i>{{employeesData.basicInfo.gender}}</i></h6>
+        <h6 *ngIf="employeesData.basicInfo.linkedinUrl != null"><i>{{employeesData.basicInfo.linkedinUrl}}</i></h6>
+    </div>
+    
+  </div>
+  <hr>
+<mat-dialog-content>
+  <div class="education-section" *ngIf="employeesData.educations != null">
+    <h5>Education:</h5>
+    <div *ngFor="let education of employeesData.educations">
+      <h6 *ngIf="education.qualification.title != null">Qualification: {{education.qualification.title}}</h6>
+      <h6 *ngIf="education.institution.institutionName != null">College: {{education.institution.institutionName}}</h6>
+    </div>
+    <hr>
+  </div>
+  <div class="skill-section" *ngIf="employeesData.skills != null">
+    <h5>Skills:</h5>
+    <div *ngFor="let skill of employeesData.skills">
+      <h6 *ngIf="skill.skillName != null">{{skill.skillName}}</h6>
+      <h6 *ngIf="skill.skillLevel != null">{{skill.skillLevel}}</h6>
+    </div>
+    <hr>
+  </div>
+  <div class="project-section" *ngIf="employeesData.projects != null">
+    <h5>Project:</h5>
+    <div *ngFor="let project of employeesData.projects">
+      <h6 *ngIf="project.title != null">Project Title: {{project.title}}</h6>
+      <h6 *ngIf="project.role != null">Role: {{project.role}}</h6>
+      <h6 *ngIf="project.projectUrl != null">Url: {{project.projectUrl}}</h6>
+      <h6 *ngIf="project.description != null">Summary: {{project.description}}</h6>
+    </div>
+    <hr>
+  </div>
+  <div class="location-section" *ngIf="employeesData.location != null">
+    <h5>Location:</h5>
+    <h6 *ngIf="employeesData.location.currentLocation.cityName != null">City: {{employeesData.location.currentLocation.cityName}}</h6>
+    <hr>
+  </div>
+  <div class="experience-section" *ngIf="employeesData.experiences != null">
+    <h5>Experience:</h5>
+    <div *ngFor="let experience of employeesData.experiences">
+      <h6 *ngIf="experience.organisation != null">Organisation: {{experience.organisation}}</h6>
+      <h6 *ngIf="experience.role != null">Role: {{experience.role}}</h6>
+    </div>
+    <hr>
+  </div>
+  <div class="certificate-section" *ngIf="employeesData.certificates != null">
+    <h5>Certificates:</h5>
+      <div *ngFor="let certificate of employeesData.certificates">
+        <h6 *ngIf="certificate.certificateName != null">Certificate: {{certificate.certificateName}}</h6>
+        <h6 *ngIf="certificate.certificateAuthority != null">Authority: {{certificate.certificateAuthority}}</h6>
+      </div>
+      <hr>
+  </div>
+  </mat-dialog-content>
+</div>

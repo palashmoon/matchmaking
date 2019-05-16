@@ -1,0 +1,57 @@
+ribbon:
+    eureka:
+        enabled: false
+
+zuul:
+    routes:
+           downstream-service:
+             url: http://localhost:8090
+           upstream-service:
+             url: http://localhost:9191
+           registration-service:
+             url: http://localhost:8086
+           user-authentication-service:
+               url: http://localhost:8088
+           certification-service:
+               url: http://localhost:8085
+           location-service:
+               url: http://localhost:8084
+           skills-service:
+               url: http://localhost:8081
+           project-service:
+               url: http://localhost:8083
+           experience-service:
+               url: http://localhost:8087
+           education-service:
+               url: http://localhost:8082
+           query-service:
+               url: http://localhost:8095
+           cache-service:
+               url: http://localhost:8008
+           uploadpic-service:
+               url: http://localhost:8096
+           websocket-service:
+               url: http://localhost:8069
+
+
+#eureka:         #tells about the Eureka server details and its refresh time
+#    instance:
+#        leaseRenewalIntervalInSeconds: 1
+#        leaseExpirationDurationInSeconds: 2
+#    client:
+#        serviceUrl:
+#            defaultZone: http://127.0.0.1:8091/eureka/
+#        healthcheck:
+#            enabled: true
+#        lease:
+#            duration: 5
+management:
+    security:
+        enabled: false  #disable the spring security on the management endpoints like /env, /refresh etc.
+
+#logging:
+#    level:
+#        com.example.howtodoinjava: DEBUG
+spring:
+    application:
+        name: zuul-gateway

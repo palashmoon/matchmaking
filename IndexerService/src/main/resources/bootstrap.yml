@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: IndexerService
+  cloud:
+    config:
+      uri: http://localhost:8888

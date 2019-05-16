@@ -1,0 +1,67 @@
+{
+  "/api/v1/education/": {
+    "target": "https://13.233.180.226:8097/upstream-service",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+    "/api/v1/experience/": {
+      "target": "https://13.233.180.226:8097/upstream-service",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    },
+  "/api/v1/certificate": {
+    "target": "https://13.233.180.226:8097/upstream-service",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/api/v1/skills": {
+    "target": "https://13.233.180.226:8097/upstream-service",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+
+  },
+  "/api/v1/location": {
+    "target": "https://13.233.180.226:8097/upstream-service",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+
+  },
+  "/api/v1/project": {
+    "target": "https://13.233.180.226:8097/upstream-service",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+
+  },
+    "/matchmaker/v1/employees/": {
+        "target": "http://13.233.180.226:8097/downstream-service",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+      },
+    "/matchmaker/v1/":{
+        "target": "http://13.233.180.226:8097/downstream-service",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+  },
+  "/api/v1/login": {
+    "target": "http://13.233.180.226:8097/user-authentication-service",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+
+  },
+  "/api/v1/registration/user": {
+    "target": "http://13.233.180.226:8086",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+
+  }
+}

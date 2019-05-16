@@ -1,0 +1,113 @@
+<section class="main" [formGroup]="projectForm" >
+  <div class="card-title">
+    <h2>Edit Project</h2>
+  </div>
+  
+  <mat-dialog-content >
+      <p>{{dataJson?.title?.text}}
+        <b>{{employeeData.title}}</b>
+        {{dataJson?.from}}
+        <mat-form-field class="date">
+          <input matInput [matDatepicker]="startDatePicker" placeholder="Choose a date" formControlName="startDate">
+          <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #startDatePicker></mat-datepicker>
+        </mat-form-field>
+        {{dataJson?.to}}
+        <mat-form-field class="date">
+          <input matInput [matDatepicker]="endDatePicker" placeholder="Choose a date" formControlName="endDate">
+          <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #endDatePicker></mat-datepicker>
+        </mat-form-field>.
+        {{dataJson?.url?.text}}
+          <mat-form-field>
+            <input matInput name="url" formControlName="url">
+            <mat-error>{{dataJson?.url?.error}}</mat-error>
+          </mat-form-field>
+          {{dataJson?.domain}}
+          <mat-form-field>
+            <input matInput name="domain" formControlName="domain" [matAutocomplete]="auto" (keyup)="onKeyUp(i)">
+          </mat-form-field>
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngIf="isLoading" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+            <ng-container *ngIf="!isLoading">
+              <mat-option *ngFor="let domain of filteredDomains" [value]="domain">
+                <span>{{ domain.name }}</span>
+              </mat-option>
+            </ng-container>
+          </mat-autocomplete>
+          {{dataJson?.role}}
+          <mat-form-field>
+            <input matInput name="role" formControlName="role">
+          </mat-form-field>
+          {{dataJson?.company}}
+          <mat-form-field>
+            <input matInput name="company" formControlName="company" [matAutocomplete]="auto1" (keyup)="onKeyUp1(i)">
+          </mat-form-field>
+          <mat-autocomplete #auto1="matAutocomplete" [displayWith]="displayFn1">
+            <mat-option *ngIf="isLoading1" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+            <ng-container *ngIf="!isLoading1">
+              <mat-option *ngFor="let organisation of filteredOrganisation" [value]="organisation">
+                <span>{{ organisation.name }}</span>
+              </mat-option>
+            </ng-container>
+          </mat-autocomplete>
+          {{dataJson?.client}}
+          <mat-form-field>
+            <input matInput name="client" formControlName="client" [matAutocomplete]="auto2" (keyup)="onKeyUp2(i)">
+          </mat-form-field>
+          <mat-autocomplete #auto2="matAutocomplete" [displayWith]="displayFn2">
+            <mat-option *ngIf="isLoading2" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+            <ng-container *ngIf="!isLoading2">
+              <mat-option *ngFor="let client of filteredClients" [value]="client">
+                <span>{{ client.name }}</span>
+              </mat-option>
+            </ng-container>
+          </mat-autocomplete>
+          {{dataJson?.description?.text}}
+          <mat-form-field style = "width:80%;">
+            <textarea  matInput  minlength="30" maxlength="300" matTextareaAutosize matAutosizeMinRows="3" matAutosizeMaxRows="7" name = "description" formControlName="description"></textarea>
+            <mat-error>{{dataJson?.description?.error}}</mat-error> 
+          </mat-form-field>
+          
+        </p>
+      
+        <div class="card-title">
+            <h4> {{dataJson?.technology?.heading}}</h4>
+            <mat-icon color="primary" (click)="addRow()" style="cursor:pointer">add</mat-icon>
+          </div>
+      <div formGroupName="technologiesUsed">
+          
+      <div class="row-items" *ngFor="let technology of projectForm.controls.technologiesUsed.controls; let i = index;" [formGroupName]="i">
+        <p> 
+          {{ dataJson?.technology?.text1 }}
+          <mat-form-field>
+            <input matInput placeholder="technology" formControlName="skill" [matAutocomplete]="auto3" (keyup)="onKeyUp3(i)" required />
+          </mat-form-field>
+          <mat-autocomplete #auto3="matAutocomplete" [displayWith]="displayFn3">
+            <mat-option *ngIf="isLoading3" class="is-loading"><mat-spinner diameter="50"></mat-spinner></mat-option>
+            <ng-container *ngIf="!isLoading3">
+              <mat-option *ngFor="let tech of filteredTech" [value]="tech">
+                <span>{{ tech.name }}</span>
+              </mat-option>
+            </ng-container>
+          </mat-autocomplete>
+          {{dataJson?.technology?.text2}}
+          <mat-form-field>
+            <input matInput placeholder="expertise" formControlName="level" [matAutocomplete]="auto4" required />
+            <mat-autocomplete #auto4="matAutocomplete">
+              <mat-option *ngFor="let option of options" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          {{dataJson?.technology?.text3}}
+        </p>
+        <mat-icon color="primary" (click)="deleteRow(i)" style="cursor:pointer">delete</mat-icon>
+      </div>
+      </div>
+    </mat-dialog-content>
+    <div class="button-row">
+      <button mat-button mr-2 (click)="onClose()">Close</button>
+      <button mat-raised-button (click)="onSave()" [disabled]="projectForm.invalid">Save</button>
+    </div>
+  </section>

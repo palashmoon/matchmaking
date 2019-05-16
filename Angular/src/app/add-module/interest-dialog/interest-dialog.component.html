@@ -1,0 +1,22 @@
+<section class="main" [formGroup]="interestsForm" >
+  <div class="card-title">
+    <h2>Add Interests</h2>
+    <mat-icon color="primary" (click)="addRow()" style="cursor:pointer">add</mat-icon>
+  </div>
+  
+  <mat-dialog-content formGroupName="interests">
+    <div class="row-items" *ngFor="let interestsControl of interestsForm.controls.interests.controls; let i = index" [formGroupName]="i">
+      <p>I have Interest in
+        <mat-form-field>
+          <input matInput name="interest" formControlName="interest" required />
+        </mat-form-field>.
+      </p>
+      <mat-icon color="primary" (click)="deleteRow(i)" style="cursor:pointer">delete</mat-icon>
+      
+    </div>
+  </mat-dialog-content>
+  <div class="button-row">
+    <button mat-button mr-2 (click)="onClose()">Close</button>
+    <button mat-raised-button (click)="onSave()"  [disabled]="!interestsForm.valid">Save</button>
+  </div>
+</section>

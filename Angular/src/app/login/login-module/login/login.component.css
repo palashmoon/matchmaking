@@ -1,0 +1,303 @@
+/* @-moz-document{
+  .main {
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.png');
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position:center;
+    height: 100%;
+    text-align: center;
+    padding: 2%;
+  }
+} */
+.main {
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.webp');
+  background-image:    -moz-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.png');
+  background-repeat:no-repeat;
+  background-size: cover;
+  background-position:center;
+  height: 100%;
+  overflow: visible;
+  text-align: center;
+  padding: 2%;
+}
+.login-section{
+  padding: 2%;
+  background-color: transparent;
+  z-index: +2;
+  border-radius: 2%;
+  height: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.company-name{
+  color: white;
+}
+.login-form{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.custom-row{
+  min-width: 300px;
+}
+/** Overrides underline color **/
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+      color: white;
+}
+::ng-deep mat-form-field >
+  .mat-hint, input, ::placeholder, .mat-form-field-label {
+      color: white;
+}
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: black!important;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.suggest {
+  text-align: center;
+  color: aliceblue;
+}
+.suggest>a{
+  color: rgb(116, 157, 233);
+}
+.mat-raised-button {
+  border-radius: 25px;
+  background-color: floralwhite;
+  color: rgb(54, 53, 53);
+  font-size: 1rem;
+  font-weight: 500;
+}
+.mat-raised-button.mat-primary[disabled] {
+  background-color: rgba(255, 250, 240, 0.808);
+  color: rgb(54, 53, 53);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+
+@media only screen and (max-width: 720px) and (min-width: 525px) {
+  .main {
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.webp');
+    background-repeat:no-repeat;
+    background-position:center;
+    background-size: cover;
+    height: 100%;
+    text-align: center;
+    padding: 2%;
+  }
+  .login-section{
+    padding: 2%;
+    background-color: transparent;
+    z-index: +2;
+    border-radius: 2%;
+    height: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .company-name{
+    color: white;
+  }
+  .login-form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .custom-row{
+    min-width: 300px;
+  }
+  /** Overrides underline color **/
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+       color: white;
+  }
+  ::ng-deep mat-form-field >
+    .mat-hint, input, ::placeholder, .mat-form-field-label {
+       color: white;
+  }
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: black!important;
+}
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .suggest {
+    text-align: center;
+    color: aliceblue;
+  }
+  .suggest>a{
+    color: rgb(116, 157, 233);
+  }
+  .mat-raised-button {
+    border-radius: 25px;
+    background-color: floralwhite;
+    color: rgb(54, 53, 53);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .mat-raised-button.mat-primary[disabled] {
+    background-color: rgba(255, 250, 240, 0.808);
+    color: rgb(54, 53, 53);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+
+@media only screen and (max-width: 525px) and (min-width: 400px) {
+  .main {
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.webp');
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position:center;
+    height: 100%;
+    text-align: center;
+    padding: 2%;
+  }
+  .login-section{
+    padding: 2%;
+    background-color: transparent;
+    z-index: +2;
+    border-radius: 2%;
+    height: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .company-name{
+    color: white;
+  }
+  .login-form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .custom-row{
+    min-width: 300px;
+  }
+  /** Overrides underline color **/
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+       color: white;
+  }
+  ::ng-deep mat-form-field >
+    .mat-hint, input, ::placeholder, .mat-form-field-label {
+       color: white;
+  }
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: black!important;
+}
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .suggest {
+    text-align: center;
+    color: aliceblue;
+  }
+  .suggest>a{
+    color: rgb(116, 157, 233);
+  }
+  .mat-raised-button {
+    border-radius: 25px;
+    background-color: floralwhite;
+    color: rgb(54, 53, 53);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .mat-raised-button.mat-primary[disabled] {
+    background-color: rgba(255, 250, 240, 0.808);
+    color: rgb(54, 53, 53);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}
+
+@media only screen and (max-width: 400px) and (min-width: 300px) {
+  .main {
+    background-image:  linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('src\assets\images\bg2.webp');
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position:center;
+    height: 100%;
+    text-align: center;
+    padding: 2%;
+  }
+  .login-section{
+    padding: 2%;
+    background-color: transparent;
+    z-index: +2;
+    border-radius: 2%;
+    height: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .company-name{
+    color: white;
+  }
+  .login-form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .custom-row{
+    min-width: 300px;
+  }
+  /** Overrides underline color **/
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+       color: white;
+  }
+  ::ng-deep mat-form-field >
+    .mat-hint, input, ::placeholder, .mat-form-field-label {
+       color: white;
+  }
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: black!important;
+}
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .suggest {
+    text-align: center;
+    color: aliceblue;
+  }
+  .suggest>a{
+    color: rgb(116, 157, 233);
+  }
+  .mat-raised-button {
+    border-radius: 25px;
+    background-color: floralwhite;
+    color: rgb(54, 53, 53);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  .mat-raised-button.mat-primary[disabled] {
+    background-color: rgba(255, 250, 240, 0.808);
+    color: rgb(54, 53, 53);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+}

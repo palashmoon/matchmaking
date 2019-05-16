@@ -1,0 +1,49 @@
+<section class="main" [formGroup]="basicInformationForm" >
+  <div class="pic"><br>
+      <div *ngIf="isPhotoSelected; else DummyImage">
+          <img (click)="working.click()" class="image" src="data:image/jpg;base64,{{receivedFile}}" alt="Image">
+        </div>
+        
+        <ng-template #DummyImage>
+          <img (click)="working.click()" class="image" src="/src/assets/images/user-pic-unavailable.png">
+        </ng-template>
+        <input type="file" (change)="handleFileSelect($event)" style="display:none" #working />
+      </div>
+      <div><br>
+
+  <p>Name   :   {{name}}</p>
+  <p>Email   :   {{email}}</p>
+  <p>Gender :
+      <mat-form-field>
+          <mat-select [(value)]="gender" required>
+            <mat-option value="Male">Male</mat-option>
+            <mat-option value="Female">Female</mat-option>
+            <mat-option value="Other">Other</mat-option>
+          </mat-select>
+        </mat-form-field></p>
+  
+  <p>Date Of Birth: <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="dob">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field></p>
+  
+  
+  <p>Contact Number : <mat-form-field>
+      <input matInput placeholder="Phone Number" formControlName="contactNo">
+    </mat-form-field></p>
+  
+    <p>Linkedin Url :<mat-form-field>
+        <input matInput placeholder="linked Url" formControlName="linkedinUrl">
+    </mat-form-field></p>
+  
+    <p>Github Url       :<mat-form-field>
+        <input matInput placeholder="github Url" formControlName="githubUrl">
+    </mat-form-field></p>
+  
+    <div class="button-row">
+    <button mat-button mr-2 (click)="onNoClick()">Close</button>
+      <button mat-raised-button (click)="onUpdate()">Update</button>
+    </div>
+        </div>
+  </section>

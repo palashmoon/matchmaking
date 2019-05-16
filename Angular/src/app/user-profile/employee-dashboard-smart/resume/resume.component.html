@@ -1,0 +1,108 @@
+<div class = "body" #body >
+  <div class="header">
+    <h4><b>{{this.name}}</b></h4>
+    <h6><i>{{this.email}}</i></h6>
+    <h6><i>+91-88888888</i></h6>
+  </div>
+<div ng-app="mainApp">
+    <div class="container" >
+      <div class="row">
+        <div class="col-md-8" ng-controller="Resume">
+          <div class="panel-body1" ng-model="card">
+            <div class="panel-heading">
+                <p><strong></strong></p> 
+              <div class = 'container1'>
+                  <app-employee-dashboard-smart (employeeEmit) = "onReciving($event)"></app-employee-dashboard-smart>
+                 
+                 
+                <div class="block">
+                    <div class = "Education">
+                      <div class = "left">
+                        <p><strong>Education:</strong></p>
+                      </div>
+                      <div class = "right">
+                        <p>College Name : {{this.institutionName}}</p>
+                        <p>Degree : {{this.title}}</p>
+                      </div>
+                      </div>
+                      <hr/>
+                    
+
+                   <div class="skills">
+                     <div class = "left">
+                      <p><strong>Skill:</strong></p>
+                    </div>
+                    <div class = "right">
+                        <p>Skill : {{this.skillName}}</p>
+                        <p>Level: {{this.skillLevel}}</p>
+                      </div>
+                  </div>          
+                 <hr/>
+                <div class="Certificate">
+                    <div class = "left">
+                     <p><strong>Certificates:</strong></p>
+                   </div>
+                   <div class =  "right">
+                       <p>Certification : {{this.certificateName}}</p>
+                       <p>Organization: {{this.certificateAuthority}}</p>
+                    </div>
+                </div> 
+                <hr/>
+
+                <div class="Location">
+                    <div class = "left">
+                     <p><strong>Locations:</strong></p>
+                   </div>
+                   <div class =  "right">
+                       <p>City : {{this.cityName}}</p>
+                       <p>State: {{this.stateName}}</p>
+                    </div>
+                </div>
+                <hr/>
+
+
+                <div class="Experience">
+                    <div class = "left">
+                     <p><strong>Experience:</strong></p>
+                   </div>
+                   <div class =  "right">
+                       <p>Organisation : {{this.organisation}}</p>
+                       <p>Role: {{this.role}}</p>
+                    </div>
+                </div>
+                <hr/>
+
+                <div class="Projects">
+                    <div class = "left">
+                     <p><strong>Projects:</strong></p>
+                   </div>
+                   <div class =  "right">
+                      <p> Title :{{this.title}}</p>
+                      <p>Url: {{this.projectUrl}}</p>
+                      <p>Role: {{this.role}}</p>
+                      <!-- <p>technologies Used:{{this.skill}}</p>
+                      <p>skill level: {{this.level}}</p> -->
+                    </div>
+                </div>
+                
+          </div>   
+                   </div>
+            </div> 
+            <div>
+              
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+  <div class="button">
+  <i class="material-icons" (click)="downloadPDF()">
+      get_app
+      </i>
+    </div>
+      <!-- <button (click)="downloadPDF()">Download Resume</button> -->
+  </div>
+  
